@@ -109,10 +109,10 @@ def find_verb_arg(verb, rel_name, pmb_ds):
 
 
 def get_gnp(line, pmb_ds):
-    print('sriram')
+    print('')
 
 def get_vib(line, pmb_ds):
-    print('sriram')
+    print('')
 
 def add_gnp_vib(pmb_ds):
     #add gender, number, person information for each word in English for
@@ -132,6 +132,7 @@ def get_hnd_wd(line, pmb_ds):
     #open the file in Hindi wordnet dir and read the hnd meaning.
     #Apply additional rules given by the linguist
 
+    wd = ''
 
     return wd
 
@@ -147,7 +148,7 @@ def add_hindi_wd(pmb_ds):
 
 
 def gen_hindi(pmb_ds):
-    print('sriram')
+    print('')
 
 if __name__ == '__main__':
 
@@ -158,6 +159,9 @@ if __name__ == '__main__':
 
     #Get Hindi word from Hindi wordnet (Verbnet Dir)
     add_hindi_wd(pmb_ds)
+    for key in pmb_ds:
+        print(key,pmb_ds[key])
+    exit()
 
     # Loop through the pmb ds and apply the rules
     add_gnp_vib(pmb_ds)
