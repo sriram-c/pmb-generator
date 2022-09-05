@@ -2,7 +2,7 @@
 %%% bin/boxer --input out/p99/d2739/en.parse.tags --semantics sbn --resolve --#tense --instantiate --modal --theory sdrt --copula false --nn --elimeq --roles #verbnet --integrate --warnings false --output out/p99/d2739/en.drs.sbn
 quantity.n.01  EQU 1                                                   %
 male.n.02                                                              % उसने
-give.v.03 Agent#karwA -1 A_TAM +1 Time +2 Recipient#saMpraxAna +3 Theme#karma +4% दी है
+give.v.03 Agent#karwA -1 A_TAM +1 Time +2 Recipient#saMpraxAna +3 Theme#karma +4 % दी है
 A_TAM      ed#yA_hE                                                    %
 time.n.08   TPR now                                                    %
 quantity.n.01  EQU 1                                                   %
