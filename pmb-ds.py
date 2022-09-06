@@ -1,5 +1,4 @@
 import sys
-import re
 
 
 def get_key(counter, first_col):
@@ -16,14 +15,14 @@ def get_key(counter, first_col):
 def chk_valid(line):
     # check if the line is valid to read and store in the Data structure
 
-    if not re.match(r'^%%%.*', line) and len(line.strip())>0:
+    if line[0] != '%' and len(line.strip()) > 0:
         return True
-
 
 def read_sbn_line(line):
 
     # For each line in sbn get word, concept, wnc, role
 
+    print(line)
     info_line =  line.split('%')[0]
     elements = info_line.split()
     wn_concept = elements[0]
@@ -52,41 +51,6 @@ def read_sbn(pmb_cont):
             index += 1
 
     return pmb_ds
-
-
-def find_all_verb_arg(key, pmb_ds):
-    index = int(re.match(r'(\d+)_', key)[1])
-    verb_row = pmb_ds[key]
-    verb_concept = verb_row[0]
-    verb_arg = iter(verb_row[1])
-
-    list_arg = []
-    while True:
-        try:
-            role, pos = next(verb_arg)
-            pos1 = int(pos)
-            find_index = str(index + pos1) + '_'
-            for key in pmb_ds:
-                if find_index in key:
-                    arg = pmb_ds[key]
-            list_arg.append((role, pos, arg))
-        except StopIteration:
-            break
-    return tuple(list_arg)
-
-
-def find_verb_arg(verb, rel_name, pmb_ds):
-    for key in pmb_ds:
-        if re.match(r'.*v_*', key):
-            verb_concept = pmb_ds[key][0]
-            if verb in verb_concept:
-                list_arg = find_all_verb_arg(key, pmb_ds)
-                for arg in list_arg:
-                    rel = arg[0]
-                    ent = arg[2]
-                    if rel_name.lower() in rel.lower():
-                        return ent
-                        # print('%s :::: %s :::: %s ' % (verb, rel, ent))
 
 
 def get_gnp(line, pmb_ds):
