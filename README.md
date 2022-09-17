@@ -36,3 +36,12 @@ Generate Hindi sentences from customised PMB sbn annotation files
         For stepping into a function press 's'
 
         For printing the data structure 'pmb_ds'
+
+#Running the nested Tuple program
+
+This is a sample program to demonstrate how to make nested tuple from the pmb rows.
+	
+	 python make_nested_tuple.py
+	Input Tuple:  ('give.v.03', 'Agent#karwA', '-1', 'TAM#A_TAM', '+1', 'TIME#Time', '+2', 'Recipient#saMpraxAna', '+3', 'Theme#karma', '+4')
+	Nested Tuple: {'1': 3, '2': 4, '3': 5, '4': 6, '5': 7, '6': 8}
+	('give.v.03', ('Agent#karwA', '-1'), ('TAM#A_TAM', '+1'), ('TIME#Time', '+2'), ('Recipient#saMpraxAna', '+3'), ('Theme#karma', '+4'), ())
